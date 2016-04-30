@@ -1,0 +1,18 @@
+<%- | String $success_color, String $error_color, String $validation_data | -%>
+#!/bin/bash
+
+# variables passed in via profile::timezone
+console_success="<%= $success_color %>"
+console_error="<%= $error_color %>"
+sudo_group="<%= $validation_data %>"
+
+# get list of folks that can login and use sudo
+sudoers=`/usr/bin/getent group $sudo_group`
+
+# write results to console
+if [ $sudoers ]
+then
+  echo -e "$console_success PASS: PROFILE::SUDO List of sudoers:\n $sudoers \e[0m"
+else
+  echo -e "$console_error FAIL: PROFILE::SUDO Group $sudo_group not enabled for sudo \e[0m"
+fi
