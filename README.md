@@ -22,7 +22,7 @@ Configures groups allowed to sudo
 
 ## MODULE DEPENDENCIES:
 ```
-puppet module install puppetlabs-dsc
+puppet module install saz-sudo
 ```
 ## USAGE:
 
