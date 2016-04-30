@@ -39,6 +39,9 @@ mod 'profile_sudo',
 #### Manifests:
 ```
 class role::*rolename* {
-  include profile_sudo
+  # RedHat family specific profiles
+  if ($::osfamily == 'RedHat') {
+    include profile_sudo
+  }
 }
 ```
